@@ -13,8 +13,9 @@
     "core-js": "^3.6.5",
     "dompurify": "^2.3.4",
     "mavon-editor": "^2.10.1",
-    "openpgp": "^5.0.1",
-    "vue": "^2.6.11",
+    "vue": "^2.6.11"
+  },
+  "peerDependencies": {
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
