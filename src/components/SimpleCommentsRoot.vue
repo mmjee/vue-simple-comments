@@ -17,6 +17,7 @@ export default {
     SimpleComment,
     CommentEditor
   },
+  props: ['APIURL', 'currentURL'],
   data: () => ({
     isLoaded: false,
     data: null,
@@ -25,11 +26,21 @@ export default {
   mounted () {
     return this.loadData()
   },
+  computed: {
+    url () {
+      return this.currentURL || window.location.href
+    }
+  },
   methods: {
+    resolveURL (path) {
+      const url = new URL(path, this.APIURL)
+      return url.href
+    },
+
     async loadData () {
-      const { data } = await axios.get('http://localhost:3000/api/v1/comments', {
+      const { data } = await axios.get(this.resolveURL('api/v1/comments'), {
         params: {
-          url: window.location.href
+          url: this.url
         }
       })
       this.data = data.rootComments
@@ -37,8 +48,8 @@ export default {
     },
 
     async onCommentCreated (payload) {
-      await axios.post('http://localhost:3000/api/v1/comments', {
-        pageURL: window.location.href,
+      await axios.post(this.resolveURL('api/v1/comments'), {
+        pageURL: this.url,
         ...payload
       })
       await this.loadData()
