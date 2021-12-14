@@ -22,3 +22,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### License
+
+Licensed under LGPLv3, see [COPYING](COPYING) and [COPYING.LESSER](COPYING.LESSER)
