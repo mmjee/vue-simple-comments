@@ -1,5 +1,25 @@
 # simple-comments-web
 
+Clear, simple, focused design for long-form commenting and discussion.
+
+## How to use
+
+```vue
+<template>
+  <SimpleCommentsRoot APIURL="<your Simple Comments server URL>" />
+</template>
+<script>
+    import { SimpleCommentsRoot } from 'simple-comments-web'
+    export default {
+        components: { SimpleCommentsRoot }
+    }
+</script>
+```
+
+## Screenshots
+
+![Screenshot 1](https://piped-ng-assets.xn--17b.net/sca_web_1.png)
+
 ## Project setup
 ```
 yarn install
